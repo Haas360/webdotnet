@@ -1,0 +1,6 @@
+﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.PageViewModel>
+
+  @foreach (var section in Model.Sections)
+  {
+    @Html.Partial(section.PartialPath, section.ViewModel)
+  }
