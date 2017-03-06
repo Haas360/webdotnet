@@ -1,7 +1,4 @@
-﻿using Moq;
-using NUnit.Framework;
-using Umbraco.Core.Models;
-using Umbraco.Web;
+﻿using NUnit.Framework;
 using Webdotnet.Custom.Core.Helpers;
 using Webdotnet.Custom.Core.Sections;
 using Webdotnet.Custom.ViewModels;

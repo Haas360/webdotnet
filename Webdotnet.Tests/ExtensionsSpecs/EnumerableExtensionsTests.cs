@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Umbraco.Core.Persistence.FaultHandling;
 using Webdotnet.Custom.Core.Helpers;
 
 namespace Webdotnet.Tests.ExtensionsSpecs
