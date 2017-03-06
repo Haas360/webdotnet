@@ -20,9 +20,10 @@ namespace Webdotnet.Custom.Core.Helpers
     {
         private readonly INodeHelper _nodeHelper;
         private readonly IList<ISectionBuilder> _sectionBuilders;
-
+        
         public PageModelExtender(INodeHelper nodeHelper, IList<ISectionBuilder> sectionBuilders)
         {
+            //TODO: change this to factory also
             _nodeHelper = nodeHelper;
             _sectionBuilders = sectionBuilders;
         }

@@ -24,7 +24,8 @@ namespace Webdotnet.Tests
         public void SetUp()
         {
             _buildersList = new List<ISectionBuilder> {new HeaderBuilder(), new FooterBuilder()};
-            _sectionProvider = new SectionsProvider(_buildersList);
+            var builderFactory = new BuildersFactory(_buildersList);
+            _sectionProvider = new SectionsProvider(builderFactory);
 
             var mockContentHeader = new PublishedContentMockingHelper();
             mockContentHeader.SetAlias(DocumentTypes.Header);
@@ -63,7 +64,8 @@ namespace Webdotnet.Tests
         public void ShouldRenderUsingFirstBuilderWhenManyApplyToOneAlias()
         {
             _buildersList.Insert(0, new FakeBuilder());
-            var sectionProviders = new SectionsProvider(_buildersList);
+            var builderFactory = new BuildersFactory(_buildersList);
+            var sectionProviders = new SectionsProvider(builderFactory);
     
             var sections = sectionProviders.GetListOfSectionsToRender(_mocekdContents);
             Assert.IsTrue(sections.Any(x=>x.ViewModel is FakeViewModel));
@@ -75,7 +77,8 @@ namespace Webdotnet.Tests
         {
             var builders = _buildersList.Where(x => !x.DeosApply(DocumentTypes.Header)).ToList();
             builders.Add(new FakeBuilderWhichReturnsException());
-            var sectionProviders = new SectionsProvider(builders);
+            var builderFactory = new BuildersFactory(builders);
+            var sectionProviders = new SectionsProvider(builderFactory);
             var sections = sectionProviders.GetListOfSectionsToRender(_mocekdContents);
 
             Assert.IsTrue(sections.Any(x => x.ViewModel is SectionErrorViewModel));

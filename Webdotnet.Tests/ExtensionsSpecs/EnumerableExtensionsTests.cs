@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Umbraco.Core.Persistence.FaultHandling;
 using Webdotnet.Custom.Core.Helpers;
@@ -47,6 +48,28 @@ namespace Webdotnet.Tests.ExtensionsSpecs
         {
             var list = new List<int>() { 1, 2 };
             Assert.IsTrue(list.IsNotNullOrEmpty());
+        }
+    }
+
+    [TestFixture]
+    public class OneTests
+    {
+        [Test]
+        public void ShouldReturnListWithOneElementInside()
+        {
+            var oneElementList = One.Item("element");
+            var referenceElementInList = One.Item(new MyClass() {MyString = "x"});
+
+            Assert.AreEqual(1, oneElementList.Count);
+            Assert.AreEqual(1, referenceElementInList.Count);
+
+            Assert.AreEqual("element", oneElementList.First());
+            Assert.AreEqual("x", referenceElementInList.First().MyString);
+        }
+
+        class MyClass
+        {
+            public string MyString { get; set; }
         }
     }
 }

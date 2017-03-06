@@ -16,4 +16,12 @@ namespace Webdotnet.Custom.Core.Helpers
             return !enumerable.IsNullOrEmpty();
         }
     }
+
+    public static class One
+    {
+        public static IList<T> Item<T>(T item)
+        {
+            return new List<T>() {item};
+        }
+    }
 }

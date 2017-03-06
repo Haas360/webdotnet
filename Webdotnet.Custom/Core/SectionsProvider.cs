@@ -16,11 +16,11 @@ namespace Webdotnet.Custom.Core
 
     public class SectionsProvider : ISectionsProvider
     {
-        private readonly List<ISectionBuilder> _sectionBuilders;
+        private readonly IBuildersFactory _buildersFactory;
 
-        public SectionsProvider(List<ISectionBuilder> sectionBuilders)
+        public SectionsProvider(IBuildersFactory buildersFactory)
         {
-            _sectionBuilders = sectionBuilders;
+            _buildersFactory = buildersFactory;
         }
 
         public List<PageSection> GetListOfSectionsToRender(List<IPublishedContent> allSections)
@@ -33,18 +33,12 @@ namespace Webdotnet.Custom.Core
                     try
                     {
                         var docAlias = section.DocumentTypeAlias;
-                        var sectionBuilder = _sectionBuilders.FirstOrDefault(x => x.DeosApply(docAlias));
-                        listOfSectionsToRender.Add(sectionBuilder != null
-                            ? new PageSection
-                            {
-                                PartialPath = sectionBuilder.ViewName,
-                                ViewModel = sectionBuilder.CreateViewModel(section)
-                            }
-                            : new PageSection
-                            {
-                                PartialPath = Consts.SectionErrorViewName,
-                                ViewModel = new SectionErrorViewModel {SectionName = section.Name, ErrorMsg = "You need to create Section builder for this alias"}
-                            });
+                        var sectionBuilder = _buildersFactory.GetFirstBuilderThatApply(docAlias);
+                        listOfSectionsToRender.Add(new PageSection
+                        {
+                            PartialPath = sectionBuilder.ViewName,
+                            ViewModel = sectionBuilder.CreateViewModel(section)
+                        });
                     }
                     catch (Exception ex)
                     {
