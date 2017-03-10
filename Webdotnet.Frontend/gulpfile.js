@@ -8,7 +8,7 @@ const concat = require('gulp-concat');
 
 
 var source = 'src/';
-var dest = 'dist/';
+var dest = '../Webdotnet.Umbraco/assets/';
 
 // Bootstrap scss source
 var bootstrapSass = {
@@ -64,7 +64,7 @@ gulp.task('js', function () {
         }))
         .pipe(concat('main.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(dest + 'js/'));
 });
 gulp.task('jsprod', function () {
     return gulp.src('src/js/*.js')
@@ -75,7 +75,7 @@ gulp.task('jsprod', function () {
         .pipe(concat('main.js'))
         .pipe(uglify())
         // .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(dest + 'js/'));
 });
 
 gulp.task('watch', ['sass', 'js'], function () {
