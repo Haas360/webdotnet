@@ -37,6 +37,7 @@
 
 /Webdotnet.Frontend/bin/
 /Webdotnet.Frontend/obj/
+/Webdotnet.Frontend/dist/
 
 /Webdotnet.Umbraco/bin/
 /Webdotnet.Umbraco/obj/

@@ -2,6 +2,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
 
 
 var source = 'src/';
@@ -46,18 +49,40 @@ gulp.task('sass', ['fonts'], function () {
         .pipe(gulp.dest(scss.out));
 });
 
+gulp.task('sassprod', ['fonts'], function () {
+    return gulp.src(scss.in)
+        .pipe(sass(scss.sassOpts))
+        .pipe(cssnano())
+        .pipe(gulp.dest(scss.out));
+});
+
 gulp.task('js', function () {
-    return gulp.src('src/**/*.js')
+    return gulp.src('src/js/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('all.js'))
+        .pipe(concat('main.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/js'));
+});
+gulp.task('jsprod', function () {
+    return gulp.src('src/js/*.js')
+        // .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        // .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/js'));
 });
 
-// default task
-gulp.task('default', ['sass'], function () {
+gulp.task('watch', ['sass', 'js'], function () {
     gulp.watch(scss.watch, ['sass']);
+    gulp.watch('src/js', ['js']);
+
 });
+gulp.task('production', ['jsprod', 'sassprod'], function () {});
+// default task
+gulp.task('default', ['sass', 'js'], function () {});
