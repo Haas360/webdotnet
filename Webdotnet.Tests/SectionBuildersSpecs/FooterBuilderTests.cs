@@ -9,23 +9,11 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
     [TestFixture]
     public class FooterBuilderTests
     {
-        private readonly FooterBuilder _builder = new FooterBuilder();
+        private readonly FooterBuilder _builder = new FooterBuilder(null);
         [Test]
-        public void BuilderApplyOnlyToHeaderDocType()
+        public void BuilderApplyOnlyToFooterDocType()
         {
-            Assert.True(_builder.DeosApply(DocumentTypes.Footer));
+            Assert.True(_builder.DeosApply(SectionDocumentTypes.Footer));
         }
-        [Test]
-        public void WhenCreateViewModelItShouldGetTestMessageFromUmbraco()
-        {
-            var mockedUmbracoContent = new PublishedContentMockingHelper();
-            var testMessage = "test message 1";
-            mockedUmbracoContent.AddProperty("testMessage", testMessage);
-
-            var viewModel = (FooterVIewModel)_builder.CreateViewModel(mockedUmbracoContent.ContentMock);
-
-            Assert.AreEqual(testMessage, viewModel.TestMessage);
-        }
-
     }
 }

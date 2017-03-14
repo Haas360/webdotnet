@@ -1,9 +1,10 @@
-﻿using Webdotnet.Custom.Core.SectionBuilder;
+﻿using System.Collections.Generic;
+using Webdotnet.Custom.Core.SectionBuilder;
 
 namespace Webdotnet.Custom.ViewModels
 {
-    public class FooterVIewModel : BaseViewModel
+    public class FooterViewModel : BaseViewModel
     {
-        public string TestMessage { get; set; }
+        public List<NavSocials> NavSocials { get; set; }
     }
 }

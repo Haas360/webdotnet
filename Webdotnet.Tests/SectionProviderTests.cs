@@ -23,15 +23,15 @@ namespace Webdotnet.Tests
         [SetUp]
         public void SetUp()
         {
-            _buildersList = new List<ISectionBuilder> {new HeaderBuilder(), new FooterBuilder()};
+            _buildersList = new List<ISectionBuilder> {new HeaderBuilder(), new FooterBuilder(null)};
             var builderFactory = new BuildersFactory(_buildersList);
             _sectionProvider = new SectionsProvider(builderFactory);
 
             var mockContentHeader = new PublishedContentMockingHelper();
-            mockContentHeader.SetAlias(DocumentTypes.Header);
+            mockContentHeader.SetAlias(SectionDocumentTypes.Header);
 
             var mockContentFooter = new PublishedContentMockingHelper();
-            mockContentFooter.SetAlias(DocumentTypes.Footer);
+            mockContentFooter.SetAlias(SectionDocumentTypes.Footer);
 
             _mocekdContents = new List<IPublishedContent>{ mockContentHeader.ContentMock, mockContentFooter.ContentMock };
         }
@@ -39,16 +39,6 @@ namespace Webdotnet.Tests
         public void ShouldReturnProperNumberOfSection()
         {
             Assert.AreEqual(2, _sectionProvider.GetListOfSectionsToRender(_mocekdContents).Count);
-        }
-        [Test]
-        public void ShouldReturnCorrectSection()
-        {
-            var sections = _sectionProvider.GetListOfSectionsToRender(_mocekdContents);
-            var headerSection = sections.FirstOrDefault(x => x.ViewModel is HeaderViewModel);
-            var footerSection = sections.FirstOrDefault(x => x.ViewModel is FooterVIewModel);
-
-            Assert.NotNull(headerSection);
-            Assert.NotNull(footerSection);
         }
         [Test]
         public void ShouldContainErrorViewModelWhenThereIsntAnyBuilderForAlias()
@@ -75,7 +65,7 @@ namespace Webdotnet.Tests
         [Test]
         public void ShouldContainErrorViewModelInsteadProperWhenExceptionHappen()
         {
-            var builders = _buildersList.Where(x => !x.DeosApply(DocumentTypes.Header)).ToList();
+            var builders = _buildersList.Where(x => !x.DeosApply(SectionDocumentTypes.Header)).ToList();
             builders.Add(new FakeBuilderWhichReturnsException());
             var builderFactory = new BuildersFactory(builders);
             var sectionProviders = new SectionsProvider(builderFactory);
@@ -98,7 +88,7 @@ namespace Webdotnet.Tests
 
         public bool DeosApply(string documentAlias)
         {
-            return documentAlias == DocumentTypes.Header;
+            return documentAlias == SectionDocumentTypes.Header;
         }
     }
     public class FakeBuilderWhichReturnsException : ISectionBuilder
@@ -112,7 +102,7 @@ namespace Webdotnet.Tests
 
         public bool DeosApply(string documentAlias)
         {
-            return documentAlias == DocumentTypes.Header;
+            return documentAlias == SectionDocumentTypes.Header;
         }
     }
     public class FakeViewModel : BaseViewModel { }

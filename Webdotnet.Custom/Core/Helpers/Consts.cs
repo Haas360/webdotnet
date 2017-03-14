@@ -3,9 +3,10 @@
     public static class Consts
     {
         public const string SectionErrorViewName = "SectionErrorView";
+        public const string PageSection = "page";
     }
 
-    public static class DocumentTypes
+    public static class SectionDocumentTypes
     {
         public const string Headline = "headline";
         public const string Header = "header";

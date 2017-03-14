@@ -1,0 +1,31 @@
+.social-nav-icon{
+  font-size: 20px;
+  border-right: 2px solid $navbar-default-border;
+  width: 55px;
+  text-align: center;
+
+  &:first-child{
+    border-left: 2px solid $navbar-default-border;
+  }
+}
+.navbar-header{
+  border-right: 2px solid $navbar-default-border;
+  a{
+    font-size: 19px;
+    font-weight: 600;
+  }
+}
+.navbar {
+  margin-bottom: 0;
+}
+.navbar-nav{
+  .header-menu-item{
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  li:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 0px;
+    transition: box-shadow 0.2s;
+  }
+}

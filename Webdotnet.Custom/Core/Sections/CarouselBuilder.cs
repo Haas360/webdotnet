@@ -1,21 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+using Umbraco.Core;
 using Umbraco.Core.Models;
+using Umbraco.Web;
+using Webdotnet.Custom.Core.Helpers;
 using Webdotnet.Custom.Core.SectionBuilder;
+using Webdotnet.Custom.ViewModels;
 
 namespace Webdotnet.Custom.Core.Sections
 {
     public class CarouselBuilder : ISectionBuilder
     {
-        public string ViewName => "nothing";
+        private readonly INodeHelper _nodeHelper;
+
+        public CarouselBuilder(INodeHelper nodeHelper)
+        {
+            _nodeHelper = nodeHelper;
+        }
+        public string ViewName => "CarouselView";
 
         public BaseViewModel CreateViewModel(IPublishedContent content)
         {
-            throw new NotImplementedException();
+            var slides = new List<Slide>();
+
+            content.Children.ForEach(slide =>
+            {
+                slides.Add(new Slide()
+                {
+                    Description = slide.GetPropertyValue<string>("shortDescription"),
+                    Header = slide.GetPropertyValue<string>("header"),
+                    Url = slide.GetPropertyValue<string>("slideUrl"),
+                    Image = _nodeHelper.GetMedia(slide.GetPropertyValue<int>("image"))
+                });
+            });
+
+            return new CarouselViewModel()
+            {
+                Slides = slides
+            };
         }
 
         public bool DeosApply(string documentAlias)
         {
-            return false;
+            return documentAlias == "carousel";
         }
     }
 }

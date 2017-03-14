@@ -26,7 +26,7 @@ namespace Webdotnet.Custom.Core.Sections
 
         public bool DeosApply(string documentAlias)
         {
-            return documentAlias == DocumentTypes.Image;
+            return documentAlias == SectionDocumentTypes.Image;
         }
     }
 }

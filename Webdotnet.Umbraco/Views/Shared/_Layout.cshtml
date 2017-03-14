@@ -5,19 +5,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@Model.Title</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link href="../../assets/css/main.css" rel="stylesheet">
 </head>
 <body>
+
+
+
+
   @if (Model.Header != null)
   {
       @Html.Partial(Model.Header.PartialPath, Model.Header.ViewModel)
   }
 
   <div class="content">
-    @RenderBody()
+    <div class="body-section container" role="main">
+      @RenderBody()
+    </div>
   </div>
   @if (Model.Footer != null)
   {
       @Html.Partial(Model.Footer.PartialPath, Model.Footer.ViewModel)
   }
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+  <script src="../../assets/js/main.js"></script>
 </body>
 </html>

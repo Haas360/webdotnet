@@ -1,0 +1,41 @@
+﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.CarouselViewModel>
+@{
+    var index = 0;
+}
+<section class="container-section carousel-section">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      @foreach (var slide in Model.Slides)
+      {
+        var activeClassIfNeeded = index == 0 ? "active" : "";
+          <li data-target="#carousel-example-generic" data-slide-to="@index" class="@activeClassIfNeeded"></li>
+        index = index == Model.Slides.Count - 1 ? 0 : index + 1;
+      }
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      @foreach (var slide in Model.Slides)
+      {
+        var activeClassIfNeeded = index == 0 ? "active" : "";
+          <div class="item @activeClassIfNeeded">
+            <img src="@slide.Image.Url" alt="temp alt">
+            <div class="carousel-text-background"></div>
+            <div class="carousel-text-container">
+              <h3 class="carousel-text-title">@slide.Header</h3>
+              <p class="carousel-text-desc">@slide.Description</p>
+              <a class="carousel-text-read-more" target="_blank" href="@slide.Url">Przejdź do postu</a>
+            </div>
+            
+          </div>
+        index++;
+      }
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</section>

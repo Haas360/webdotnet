@@ -23,7 +23,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void BuilderApplyOnlyToHeaderDocType()
         {
-            Assert.True(_builder.DeosApply(DocumentTypes.Image));
+            Assert.True(_builder.DeosApply(SectionDocumentTypes.Image));
         }
         [Test]
         public void WhenCreateViewModelItShouldGetTesMessageFromUmbraco()

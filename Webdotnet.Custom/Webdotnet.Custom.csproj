@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Archetype, Version=1.13.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Archetype.Binaries.1.13.2\lib\net40\Archetype.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -284,8 +288,10 @@
     <Compile Include="Core\SectionBuilder\BaseViewModel.cs" />
     <Compile Include="Core\SectionBuilder\ISectionBuilder.cs" />
     <Compile Include="Core\Sections\ErrorSectionBuilder.cs" />
+    <Compile Include="Core\Sections\ThemeTestBuilder.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="ViewModels\CarouselViewModel.cs" />
     <Compile Include="ViewModels\LayoutBaseViewModel.cs" />
     <Compile Include="Core\Sections\CarouselBuilder.cs" />
     <Compile Include="Core\Sections\FooterBuilder.cs" />
@@ -300,6 +306,7 @@
     <Compile Include="ViewModels\HeaderViewModel.cs" />
     <Compile Include="ViewModels\HeadlineViewModel.cs" />
     <Compile Include="ViewModels\ImageSectionViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\SectionErrorViewModel.cs" />
   </ItemGroup>

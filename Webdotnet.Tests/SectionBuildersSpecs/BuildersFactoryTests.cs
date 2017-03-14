@@ -19,7 +19,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
             {
                 new ErrorSectionBuilder(),
                 new FakeBuilder(),
-                new FooterBuilder(),
+                new FooterBuilder(null),
                 new HeaderBuilder()
             };
             
@@ -32,7 +32,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void ShouldReturnOnlyOneBuilderWhichApplyToDoctypeAlias()
         {
-            var builder = BuildersFactory.GetFirstBuilderThatApply(DocumentTypes.Header);
+            var builder = BuildersFactory.GetFirstBuilderThatApply(SectionDocumentTypes.Header);
             Assert.True(builder is FakeBuilder);
         }
         [Test]
@@ -48,14 +48,14 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void ShouldReturnListOfBuilders()
         {
-            var builders = BuildersFactory.GetAllBuildersThatApply(DocumentTypes.Header);
+            var builders = BuildersFactory.GetAllBuildersThatApply(SectionDocumentTypes.Header);
             Assert.AreEqual(2, builders.Count);
 
         }
         [Test]
         public void ShouldReturnOnlyAllBuilderWhichApplyToDoctypeAlias()
         {
-            var builders = BuildersFactory.GetAllBuildersThatApply(DocumentTypes.Header);
+            var builders = BuildersFactory.GetAllBuildersThatApply(SectionDocumentTypes.Header);
             Assert.AreEqual(2, builders.Count);
             Assert.AreEqual(1, builders.Count(x => x is HeaderBuilder));
             Assert.AreEqual(1, builders.Count(x => x is FakeBuilder));
@@ -71,7 +71,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void ShouldntContainErrorBuilderWhenThereIsABuilderForAlias()
         {
-            var builders = BuildersFactory.GetAllBuildersThatApply(DocumentTypes.Footer);
+            var builders = BuildersFactory.GetAllBuildersThatApply(SectionDocumentTypes.Footer);
             Assert.AreEqual(1, builders.Count);
             Assert.AreEqual(0, builders.Count(x => x is ErrorSectionBuilder));
         }

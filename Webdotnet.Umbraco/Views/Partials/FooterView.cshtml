@@ -1,4 +1,32 @@
-﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.FooterVIewModel>
-<footer>
-  <p>I'm the great footer and this is my message: @Model.TestMessage</p>
+﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.FooterViewModel>
+<footer class="footer">
+  <section class="container">
+    <div class="col-md-4">
+      <div class="footer-column">
+        <h3>WebDotNet</h3>
+        <p class="footer-short-desc">
+          WebDotNet to projekt pierwotnie stworzony podczas "Daj się poznać 2017", jednak z perspektywami na dalszy rozwój i dodatkowy content po jego zakończeniu
+        </p>
+        <span>Developed By Kamil Hadas</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="footer-column-left-border">
+        <h3>Social Media:</h3>
+        <ul class="footer-social-media-list">
+          @foreach (var socialItem in Model.NavSocials)
+          {
+            <li class="footer-social-item">
+              <a href="@socialItem.Url" target="_blank">
+                <i class="fa @socialItem.FontAwesomeClass" aria-hidden="true"></i>
+                <span class="footer-social-name">@socialItem.Name</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 </footer>

@@ -27,8 +27,8 @@ namespace Webdotnet.Custom.Core.Helpers
         {
             var websiteNode = model.AncestorOrSelf(1);
 
-            var header = BuildSection(websiteNode, _sectionBuilders, DocumentTypes.Header);
-            var footer = BuildSection(websiteNode, _sectionBuilders, DocumentTypes.Footer);
+            var header = BuildSection(websiteNode, _sectionBuilders, SectionDocumentTypes.Header);
+            var footer = BuildSection(websiteNode, _sectionBuilders, SectionDocumentTypes.Footer);
 
             viewModel.Title = websiteNode.GetPropertyValue<string>("title");
             viewModel.Header = header;

@@ -265,7 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionsSpecs\EnumerableExtensionsTests.cs" />
-    <Compile Include="PageModelExtenderTests.cs" />
     <Compile Include="SectionBuildersSpecs\BuildersFactoryTests.cs" />
     <Compile Include="SectionBuildersSpecs\FooterBuilderTests.cs" />
     <Compile Include="SectionBuildersSpecs\HeaderBuilderTests.cs" />

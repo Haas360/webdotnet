@@ -18,6 +18,7 @@ var bootstrapSass = {
 // Bootstrap fonts source
 var fonts = {
     in: [source + 'fonts/*.*'],
+    inBootstrap: [source + 'fonts/bootstrap/*.*'],
     out: dest + 'fonts/'
 };
 
@@ -34,22 +35,27 @@ var scss = {
     }
 };
 // copy bootstrap required fonts to dest
-gulp.task('fonts', function () {
+gulp.task('fonts',['fonts-bootsrap'], function () {
     return gulp
         .src(fonts.in)
         .pipe(gulp.dest(fonts.out));
 });
+gulp.task('fonts-bootsrap', function () {
+    return gulp
+        .src(fonts.inBootstrap)
+        .pipe(gulp.dest(fonts.out + 'bootstrap/'));
+});
 // compile scss
 
 
-gulp.task('sass', ['fonts'], function () {
+gulp.task('sass', function () {
     return gulp.src(scss.in)
         .pipe(sass(scss.sassOpts))
         // .pipe(cssnano())
         .pipe(gulp.dest(scss.out));
 });
 
-gulp.task('sassprod', ['fonts'], function () {
+gulp.task('sassprod', function () {
     return gulp.src(scss.in)
         .pipe(sass(scss.sassOpts))
         .pipe(cssnano())
@@ -83,6 +89,6 @@ gulp.task('watch', ['sass', 'js'], function () {
     gulp.watch('src/js', ['js']);
 
 });
-gulp.task('production', ['jsprod', 'sassprod'], function () {});
+gulp.task('production', ['jsprod', 'sassprod','fonts'], function () {});
 // default task
-gulp.task('default', ['sass', 'js'], function () {});
+gulp.task('default', ['sass', 'js','fonts'], function () {});

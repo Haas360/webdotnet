@@ -14,7 +14,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void BuilderApplyOnlyToHeaderDocType()
         {
-            Assert.True(_builder.DeosApply(DocumentTypes.Headline));
+            Assert.True(_builder.DeosApply(SectionDocumentTypes.Headline));
         }
         [Test]
         public void WhenCreateViewModelItShouldGetTitleFromUmbraco()

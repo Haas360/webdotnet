@@ -13,4 +13,9 @@ Blog website: http://www.webdotnet.pl
 	* enter [yourdomain]/umbraco
 	* Login: "Admin"
 	* Password: "qwerty123"
+6. To compile frontend you need to:
+	* Go to Webdotnet.Frontend folder
+	* "shift + right" click inside and click open comand window here (or go to this catalog incmd/powershell)
+	* install gulp globally (command: "npm install gulp -g --save")
+	* type "gulp" in command line and press enter
 6. ...More come soon :) But just to run and explore things this guide is enough :)

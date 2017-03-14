@@ -1,4 +1,33 @@
 ﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.HeaderViewModel>
 <header>
-  <p>I'm the great header and this is my message: @Model.TestString</p>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">WebDotNet</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          @foreach (var menuItem in Model.NavElement)
+          {
+            if (menuItem.IsVisibleInMenu)
+            {
+              <li class="@menuItem.IsActive header-menu-item"><a href="@menuItem.Url">@menuItem.Name</a></li>
+            }
+          }
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          @foreach (var socialItem in Model.NavSocials)
+          {
+              <li class="social-nav-icon"><a target="_blank" href="@socialItem.Url"><i class="fa @socialItem.FontAwesomeClass" aria-hidden="true"></i></a></li>
+          }
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
 </header>

@@ -13,19 +13,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
         [Test]
         public void BuilderApplyOnlyToHeaderDocType()
         {
-            Assert.True(_builder.DeosApply(DocumentTypes.Header));
+            Assert.True(_builder.DeosApply(SectionDocumentTypes.Header));
         }
-        [Test]
-        public void WhenCreateViewModelItShouldGetTesMessageFromUmbraco()
-        {
-            var mockedUmbracoContent = new PublishedContentMockingHelper();
-            var testMessage = "test message 1";
-            mockedUmbracoContent.AddProperty("testMessage", testMessage);
-            
-            var viewModel = (HeaderViewModel)_builder.CreateViewModel(mockedUmbracoContent.ContentMock);
-
-            Assert.AreEqual(testMessage, viewModel.TestString);
-        }
-        
     }
 }

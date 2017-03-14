@@ -22,7 +22,7 @@ namespace Webdotnet.Custom.Core.Sections
 
         public bool DeosApply(string documentAlias)
         {
-            return documentAlias == DocumentTypes.Headline;
+            return documentAlias == SectionDocumentTypes.Headline;
         }
     }
 }

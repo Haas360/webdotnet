@@ -1,0 +1,27 @@
+.carousel-section{
+  padding: 0;
+
+  .carousel-inner{
+    height: 450px;
+  }
+
+  .carousel-text-container{
+    position: absolute;
+    right: 140px;
+    top: 190px;
+    height: 200px;
+    width: 450px;
+    padding: 0 10px;
+    color: black;
+  }
+  .carousel-text-background{
+    @extend .carousel-text-container;
+    background-color: #CED3DC;
+    opacity: 0.7;
+  }
+  .carousel-text-read-more{
+    float: right;
+
+  }
+}
+
