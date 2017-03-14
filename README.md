@@ -18,4 +18,4 @@ Blog website: http://www.webdotnet.pl
 	* "shift + right" click inside and click open comand window here (or go to this catalog incmd/powershell)
 	* install gulp globally (command: "npm install gulp -g --save")
 	* type "gulp" in command line and press enter
-6. ...More come soon :) But just to run and explore things this guide is enough :)
+7. ...More come soon :) But just to run and explore things this guide is enough :)
