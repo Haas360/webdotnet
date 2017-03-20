@@ -40,4 +40,5 @@ namespace Webdotnet.Custom.Core.Sections
             return documentAlias == SectionDocumentTypes.Footer;
         }
     }
+
 }

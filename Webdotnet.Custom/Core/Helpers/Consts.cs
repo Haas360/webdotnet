@@ -13,6 +13,7 @@
         public const string Footer = "footer";
         public const string Carousel = "carousel";
         public const string Image = "imageSection";
+        public const string ArticleList = "artilceList";
 
     }
 }

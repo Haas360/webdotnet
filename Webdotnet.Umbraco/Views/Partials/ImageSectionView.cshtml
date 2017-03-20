@@ -1,8 +1,8 @@
 ﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.ImageSectionViewModel>
 
-<section class="image-section">
+<section class="container-section image-section">
   <h1 class="image-section-header">@Model.Header</h1>
   <p>
-    <img src="@Model.Image.Url"/>
+    <img src="@Model.Image.Url" alt="@Model.Image.Alias" />
   </p>  
 </section>

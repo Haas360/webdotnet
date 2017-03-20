@@ -279,6 +279,7 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Core\Helpers\ImageWraper.cs" />
     <Compile Include="Core\SectionBuilder\BuildersFactory.cs" />
     <Compile Include="Core\SectionsProvider.cs" />
     <Compile Include="Core\Helpers\Consts.cs" />
@@ -287,10 +288,12 @@
     <Compile Include="Core\Helpers\PageModelExtender.cs" />
     <Compile Include="Core\SectionBuilder\BaseViewModel.cs" />
     <Compile Include="Core\SectionBuilder\ISectionBuilder.cs" />
+    <Compile Include="Core\Sections\ArticleListBuilder.cs" />
     <Compile Include="Core\Sections\ErrorSectionBuilder.cs" />
     <Compile Include="Core\Sections\ThemeTestBuilder.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="ViewModels\ArticleListViewModel.cs" />
     <Compile Include="ViewModels\CarouselViewModel.cs" />
     <Compile Include="ViewModels\LayoutBaseViewModel.cs" />
     <Compile Include="Core\Sections\CarouselBuilder.cs" />

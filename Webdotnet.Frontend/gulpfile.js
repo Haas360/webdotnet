@@ -51,7 +51,6 @@ gulp.task('fonts-bootsrap', function () {
 gulp.task('sass', function () {
     return gulp.src(scss.in)
         .pipe(sass(scss.sassOpts))
-        // .pipe(cssnano())
         .pipe(gulp.dest(scss.out));
 });
 

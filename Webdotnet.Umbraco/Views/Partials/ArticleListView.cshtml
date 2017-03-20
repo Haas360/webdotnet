@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.ArticleListViewModel>
+<section class="article-section container-section">
+  <h1 class="article-card-section-header">@Model.Title</h1>
+  @foreach (var articleCard in Model.Articles)
+  {
+    <div class="col-md-4">
+      <a href="#">
+        <div class="article-card-content">
+          <div class="article-card">
+            <img class="article-card-img" src="@articleCard.CardImage.Url" alt="@articleCard.CardImage.Alias" />
+            <div class="article-card-text-area">
+              <h3 class="article-card-title">@articleCard.Title</h3>
+              <div class="article-card-tags">
+                @foreach (var tag in articleCard.Tags)
+                {
+                <span class="article-card-tag"><i class="fa fa-tag" aria-hidden="true"></i>@tag</span>
+                }
+              </div>
+              <p class="article-card-desc">@articleCard.ShortDescription</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  }
+</section>

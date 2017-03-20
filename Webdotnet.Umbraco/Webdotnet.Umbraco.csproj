@@ -442,6 +442,7 @@
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\Partials\ThemeTest.cshtml" />
     <Content Include="Views\Partials\CarouselView.cshtml" />
+    <Content Include="Views\Partials\ArticleListView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -37,6 +37,7 @@ namespace Webdotnet.Custom.DependencyResolution {
             For<ISectionBuilder>().Use<FooterBuilder>();
             For<ISectionBuilder>().Use<ImageSectionBuilder>();
             For<ISectionBuilder>().Use<ThemeTestBuilder>();
+            For<ISectionBuilder>().Use<ArticleListBuilder>();
 
             For<IPageModelExtender>().Use<PageModelExtender>();
         }

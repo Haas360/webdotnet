@@ -20,7 +20,7 @@ namespace Webdotnet.Custom.Core.Sections
             return new ImageSectionViewModel
             {
                 Header = content.GetPropertyValue<string>("header"),
-                Image = _nodeHelper.GetMedia(content.GetPropertyValue<int>("image"))
+                Image = content.GetImage("image", _nodeHelper).WithQuality(90)
             };
         }
 

@@ -7,6 +7,5 @@ namespace Webdotnet.Custom.Core.SectionBuilder
         string ViewName { get; }
         BaseViewModel CreateViewModel(IPublishedContent content);
         bool DeosApply(string documentAlias);
-
     }
 }
