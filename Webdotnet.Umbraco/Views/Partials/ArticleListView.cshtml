@@ -4,7 +4,7 @@
   @foreach (var articleCard in Model.Articles)
   {
     <div class="col-md-4">
-      <a href="#">
+      <a href="@articleCard.Url">
         <div class="article-card-content">
           <div class="article-card">
             <img class="article-card-img" src="@articleCard.CardImage.Url" alt="@articleCard.CardImage.Alias" />

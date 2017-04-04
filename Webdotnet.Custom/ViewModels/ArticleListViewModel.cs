@@ -14,7 +14,9 @@ namespace Webdotnet.Custom.ViewModels
     {
         public string Title { get; set; }
         public string ShortDescription { get; set; }
+        public string Url { get; set; }
         public IList<string> Tags { get; set; }
         public ImageWraper CardImage { get; set; }
+        
     }
 }

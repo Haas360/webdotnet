@@ -38,7 +38,8 @@ namespace Webdotnet.Custom.Core.Sections
                     Title = articleModel.GetPropertyValue<string>("title"),
                     ShortDescription = articleModel.GetPropertyValue<string>("shortDescription"),
                     Tags = articleModel.GetPropertyValue<string>("tags").Split(','),
-                    CardImage = articleModel.GetImage("cardImage", _nodeHelper).WithQuality(80).WithHeight(160).WithWidth(330).WithCrop()
+                    CardImage = articleModel.GetImage("cardImage", _nodeHelper).WithQuality(80).WithHeight(160).WithWidth(330).WithCrop(),
+                    Url = articleModel.Url
                 });
             });
             return viewModel;

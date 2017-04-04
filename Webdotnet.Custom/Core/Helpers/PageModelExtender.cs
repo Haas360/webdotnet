@@ -15,20 +15,19 @@ namespace Webdotnet.Custom.Core.Helpers
     public class PageModelExtender : IPageModelExtender
     {
         private readonly INodeHelper _nodeHelper;
-        private readonly IList<ISectionBuilder> _sectionBuilders;
-        
-        public PageModelExtender(INodeHelper nodeHelper, IList<ISectionBuilder> sectionBuilders)
+        private readonly IBuildersFactory _buildersFactory;
+
+        public PageModelExtender(INodeHelper nodeHelper, IBuildersFactory buildersFactory)
         {
-            //TODO: change this to factory also
             _nodeHelper = nodeHelper;
-            _sectionBuilders = sectionBuilders;
+            _buildersFactory = buildersFactory;
         }
         public PageViewModel ApplyLayoutToModel(PageViewModel viewModel, IPublishedContent model)
         {
-            var websiteNode = model.AncestorOrSelf(1);
-
-            var header = BuildSection(websiteNode, _sectionBuilders, SectionDocumentTypes.Header);
-            var footer = BuildSection(websiteNode, _sectionBuilders, SectionDocumentTypes.Footer);
+            var rootNodes = _nodeHelper.Umbraco.TypedContentAtRoot();
+            var websiteNode = rootNodes.First(x => x.DocumentTypeAlias == "master");
+            var header = BuildSection(websiteNode, SectionDocumentTypes.Header);
+            var footer = BuildSection(websiteNode, SectionDocumentTypes.Footer);
 
             viewModel.Title = websiteNode.GetPropertyValue<string>("title");
             viewModel.Header = header;
@@ -36,11 +35,12 @@ namespace Webdotnet.Custom.Core.Helpers
 
             return viewModel;
         }
+       
 
-        private PageSection BuildSection(IPublishedContent websiteNode, IList<ISectionBuilder> sectionBuilders, string nodeAlias)
+        private PageSection BuildSection(IPublishedContent websiteNode,  string nodeAlias)
         {
             var node = _nodeHelper.GetContent(websiteNode.GetPropertyValue<int>(nodeAlias));
-            var builder = sectionBuilders.FirstOrDefault(x => x.DeosApply(node.DocumentTypeAlias));
+            var builder = _buildersFactory.GetFirstBuilderThatApply(node.DocumentTypeAlias);
             return builder != null ? new PageSection
             {
                 PartialPath = builder.ViewName,

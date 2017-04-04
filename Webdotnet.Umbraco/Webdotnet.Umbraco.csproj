@@ -443,6 +443,8 @@
     <Content Include="Views\Partials\ThemeTest.cshtml" />
     <Content Include="Views\Partials\CarouselView.cshtml" />
     <Content Include="Views\Partials\ArticleListView.cshtml" />
+    <Content Include="Views\Article.cshtml" />
+    <Content Include="Views\Partials\ArticleBodyText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

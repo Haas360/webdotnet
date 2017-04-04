@@ -3,9 +3,10 @@
     background-color: white;
     height: 400px;
     margin-bottom: 15px;
-
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid lightgrey;
     &:hover{
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2), 0 5px 28px 0 rgba(0, 0, 0, 0.19);
       transition: box-shadow 0.2s;
     }
   }
