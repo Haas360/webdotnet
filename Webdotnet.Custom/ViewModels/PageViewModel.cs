@@ -6,6 +6,7 @@ namespace Webdotnet.Custom.ViewModels
     public class PageViewModel : LayoutBaseViewModel
     {
         public IList<PageSection> Sections { get; set; }
+        public int Id { get; set; }
     }
 
     public class PageSection

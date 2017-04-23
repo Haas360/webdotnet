@@ -4,7 +4,6 @@
     <img class="article-img" src="@Model.Image.Url" alt="@Model.Image.Alias" />
   <div class="col-md-3">
     <div class="facebook-fanpage">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthis.webdotnet%2F&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="280" height="500" style="border: none; overflow: hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>  
     </div>
     
   </div>
@@ -16,6 +15,21 @@
           @Html.Partial(section.PartialPath, section.ViewModel)
       }
     </div>
+      <div id="disqus_thread"></div>
+      <script>
 
+
+var disqus_config = function () {
+this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = @Model.Id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </article>

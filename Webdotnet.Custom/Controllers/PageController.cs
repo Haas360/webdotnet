@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using DevTrends.MvcDonutCaching;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 using Webdotnet.Custom.Core;
@@ -18,7 +19,7 @@ namespace Webdotnet.Custom.Controllers
             _pageModelExtender = pageModelExtender;
             _sectionsProvider = sectionsProvider;
         }
-
+        [DonutOutputCache(CacheProfile = "Page.Cache")]
         public override ActionResult Index(RenderModel model)
         {
             var allSections = model.Content.Children.ToList();

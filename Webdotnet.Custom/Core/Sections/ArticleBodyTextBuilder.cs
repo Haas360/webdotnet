@@ -18,6 +18,7 @@ namespace Webdotnet.Custom.Core.Sections
         {
             return new ArticleBodyTextViewModel()
             {
+                Id = content.Id,
                 Body = new MvcHtmlString(content.GetPropertyValue<string>("body"))
             };
         }

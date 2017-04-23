@@ -32,7 +32,7 @@ namespace Webdotnet.Custom.Core.Helpers
             viewModel.Title = websiteNode.GetPropertyValue<string>("title");
             viewModel.Header = header;
             viewModel.Footer = footer;
-
+            viewModel.Id = model.Id;
             return viewModel;
         }
        

@@ -1,2 +1,2 @@
-﻿<%@ Application Inherits="Umbraco.Web.UmbracoApplication" Language="C#" %>
-          
+﻿<%@ Application Inherits="Webdotnet.Custom.Core.WebdotnetApplication" Language="C#" %>
+           
