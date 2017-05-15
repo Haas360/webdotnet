@@ -30,7 +30,7 @@ namespace Webdotnet.Custom.Core.Sections
                     Description = slide.GetPropertyValue<string>("shortDescription"),
                     Header = slide.GetPropertyValue<string>("header"),
                     Url = slide.GetPropertyValue<string>("slideUrl"),
-                    Image = _nodeHelper.GetMedia(slide.GetPropertyValue<int>("image"))
+                    Image = slide.GetImage("image", _nodeHelper).WithHeight(450).WithCrop().WithWidth(1170)
                 });
             });
 

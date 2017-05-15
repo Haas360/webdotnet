@@ -1,35 +1,65 @@
 ﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.ArticleViewModel>
 
 <article class="article-container container-section">
-    <img class="article-img" src="@Model.Image.Url" alt="@Model.Image.Alias" />
-  <div class="col-md-3">
-    <div class="facebook-fanpage">
-    </div>
-    
-  </div>
+  <img class="article-img" src="@Model.Image.Url" alt="@Model.Image.Alias" />
+  
   <div class="col-md-9">
-    
+
     <div>
       @foreach (var section in Model.Sections)
       {
-          @Html.Partial(section.PartialPath, section.ViewModel)
+        @Html.Partial(section.PartialPath, section.ViewModel)
       }
     </div>
-      <div id="disqus_thread"></div>
-      <script>
-
-
-var disqus_config = function () {
-this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = @Model.Id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
   </div>
+  <div class="col-md-3 article-side-section">
+    @if (Model.RecentArticles.Any())
+    {
+
+      <div class="article-tags">
+        <span class="article-side-header">Tagi:</span>
+        <div class="article-card-tags">
+          @foreach (var tag in Model.Tags)
+          {
+            <a href="@tag.Url"><span class="article-card-tag"><i class="fa fa-tag" aria-hidden="true"></i>@tag.Title</span></a>
+          }
+        </div>
+      </div>
+      <span class="article-side-header">Ostatnie z kategorii:</span>
+      <div class="recent-from-the-same-category">
+        @foreach (var articlelink in Model.RecentArticles)
+        {
+          <span class="recent-link"><a href="@articlelink.Url">@articlelink.Title</a></span>
+        }
+      </div>
+    }
+    <div class="facebook-fanpage">
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthis.webdotnet%2F&tabs=timeline&width=260&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="280" height="500" style="border: none; overflow: hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+
+  </div>
+  <div class="article-comments">
+    <div id="disqus_thread"></div>
+    <script>
+
+
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = @Model.Id;
+      };
+
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://webdotnet-2.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
 </article>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+

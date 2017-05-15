@@ -281,8 +281,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="Controllers\AllArticlesController.cs" />
     <Compile Include="Controllers\ArticleControler.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\SitemapController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Core\Helpers\ImageWraper.cs" />
     <Compile Include="Core\Helpers\ViewModelExtensions.cs" />
     <Compile Include="Core\SectionBuilder\BuildersFactory.cs" />
@@ -295,6 +298,7 @@
     <Compile Include="Core\SectionBuilder\ISectionBuilder.cs" />
     <Compile Include="Core\Sections\ArticleBodyTextBuilder.cs" />
     <Compile Include="Core\Sections\ArticleListBuilder.cs" />
+    <Compile Include="Core\Sections\ArticlesCarouselBuilder.cs" />
     <Compile Include="Core\Sections\ErrorSectionBuilder.cs" />
     <Compile Include="Core\Sections\ThemeTestBuilder.cs" />
     <Compile Include="Core\UmbracoContentChangeHandler.cs" />
@@ -302,6 +306,7 @@
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="ViewModels\ArticleBodyTextViewModel.cs" />
+    <Compile Include="ViewModels\ArticleByTagViewModel.cs" />
     <Compile Include="ViewModels\ArticleListViewModel.cs" />
     <Compile Include="ViewModels\ArticleViewModel.cs" />
     <Compile Include="ViewModels\CarouselViewModel.cs" />

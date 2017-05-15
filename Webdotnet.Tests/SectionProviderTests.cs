@@ -23,7 +23,7 @@ namespace Webdotnet.Tests
         [SetUp]
         public void SetUp()
         {
-            _buildersList = new List<ISectionBuilder> {new HeaderBuilder(), new FooterBuilder(null)};
+            _buildersList = new List<ISectionBuilder> {new HeaderBuilder(new NodeHelper()), new FooterBuilder(null)};
             var builderFactory = new BuildersFactory(_buildersList);
             _sectionProvider = new SectionsProvider(builderFactory);
 

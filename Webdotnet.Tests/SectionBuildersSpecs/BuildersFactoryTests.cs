@@ -20,7 +20,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
                 new ErrorSectionBuilder(),
                 new FakeBuilder(),
                 new FooterBuilder(null),
-                new HeaderBuilder()
+                new HeaderBuilder(null)
             };
             
             BuildersFactory = new BuildersFactory(builders);

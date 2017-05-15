@@ -448,6 +448,10 @@
     <Content Include="Views\Partials\ArticleListView.cshtml" />
     <Content Include="Views\Article.cshtml" />
     <Content Include="Views\Partials\ArticleBodyText.cshtml" />
+    <Content Include="Views\ViewByTag.cshtml" />
+    <Content Include="Views\Tag.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\AllArticles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

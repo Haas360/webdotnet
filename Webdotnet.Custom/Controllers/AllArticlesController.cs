@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Umbraco.Core;
+using Umbraco.Web.Models;
+using Umbraco.Web.Mvc;
+using Webdotnet.Custom.Core.Helpers;
+using Webdotnet.Custom.ViewModels;
+
+namespace Webdotnet.Custom.Controllers
+{
+    public class AllArticlesController : RenderMvcController
+    {
+        private readonly INodeHelper _nodeHelper;
+        private readonly IPageModelExtender _pageModelExtender;
+
+        public AllArticlesController(INodeHelper nodeHelper, IPageModelExtender pageModelExtender)
+        {
+            _nodeHelper = nodeHelper;
+            _pageModelExtender = pageModelExtender;
+        }
+        public override ActionResult Index(RenderModel model)
+        {
+            var rootNodes = _nodeHelper.Umbraco.TypedContentAtRoot();
+            var articlesRootNode = rootNodes.First(x => x.DocumentTypeAlias == "articlesRoot");
+            var allArticles = articlesRootNode.Children.SelectMany(x => x.Children).ToList();
+
+            var parsedArticles = allArticles.Select(x => new MetadataForAllList
+            {
+                Title = x.Name,
+                Url = x.Url,
+                Date = x.CreateDate
+            }).ToList();
+            var grupedArticlesList = new List<GrupedArticles>();
+
+            parsedArticles.ForEach(article =>
+            {
+                var parsedDate = $"{article.Date.Month} {article.Date.Year}";
+                if (grupedArticlesList.Any(x => x.NodeName == parsedDate))
+                {
+                    var monthList = grupedArticlesList.First(x => x.NodeName == parsedDate);
+                    monthList.Articles.Add(article);
+                }
+                else
+                {
+                    grupedArticlesList.Add(new GrupedArticles
+                    {
+                        NodeName = parsedDate,
+                        Articles = new List<MetadataForAllList> { article }
+                    });
+                }
+            });
+
+            var pageViewModel = _pageModelExtender.ApplyLayoutToModel(new PageViewModel(), model.Content);
+
+            var allArticlesViweModel = new AllArticlesViewModel
+            {
+                Header = pageViewModel.Header,
+                Description = "Wszystkie posty pogrupowane po miesiącu publikacji",
+                Title = "Wszystkie posty",
+                Footer = pageViewModel.Footer,
+                IsArticle = false,
+                Id = pageViewModel.Id,
+                GrupedArticles = grupedArticlesList
+            };
+
+            return View("AllArticles", allArticlesViweModel);
+        }
+
+    }
+
+    public class AllArticlesViewModel : PageViewModel
+    {
+        public List<GrupedArticles> GrupedArticles { get; set; }
+    }
+    public class GrupedArticles
+    {
+        public string NodeName { get; set; }
+        public List<MetadataForAllList> Articles { get; set; }
+    }
+    public class MetadataForAllList
+    {
+        public string Title { get; set; }
+        public string Url { get; set; }
+        public DateTime Date { get; set; }
+    }
+}

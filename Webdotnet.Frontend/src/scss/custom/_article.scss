@@ -1,0 +1,30 @@
+.article-side-section{
+  .article-tags{
+    clear: both;
+    padding-top: 15px;
+    display: block;
+    position: relative;
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+  .article-side-header{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    display: block;
+  }
+  .recent-from-the-same-category{
+    clear: both;
+
+    .recent-link{
+      clear: both;
+      width: 100%;
+      display: block;
+      font-size: 18px;
+      padding-left: 10px;
+    }
+  }
+}
+.article-comments{
+  padding: 25px;
+}

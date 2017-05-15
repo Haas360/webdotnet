@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Umbraco.Core.Models;
+using Webdotnet.Custom.Core.Helpers;
 using Webdotnet.Custom.Core.SectionBuilder;
 
 namespace Webdotnet.Custom.ViewModels
@@ -14,6 +15,6 @@ namespace Webdotnet.Custom.ViewModels
         public string Header { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
-        public IPublishedContent Image { get; set; }
+        public ImageWraper Image { get; set; }
     }
 }

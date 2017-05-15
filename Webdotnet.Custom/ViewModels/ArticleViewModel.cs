@@ -10,5 +10,7 @@ namespace Webdotnet.Custom.ViewModels
     public class ArticleViewModel : PageViewModel
     {
         public ImageWraper Image { get; set; }
+        public List<ArticleRecentElement> RecentArticles { get; set; }
+        public IEnumerable<TagWithLink> Tags { get; set; }
     }
 }

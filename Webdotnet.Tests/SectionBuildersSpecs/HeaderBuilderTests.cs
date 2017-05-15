@@ -9,7 +9,7 @@ namespace Webdotnet.Tests.SectionBuildersSpecs
     [TestFixture]
     public class HeaderBuilderTests
     {
-        private readonly HeaderBuilder _builder = new HeaderBuilder();
+        private readonly HeaderBuilder _builder = new HeaderBuilder(null);
         [Test]
         public void BuilderApplyOnlyToHeaderDocType()
         {

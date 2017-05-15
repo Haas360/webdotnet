@@ -17,12 +17,12 @@
       {
         var activeClassIfNeeded = index == 0 ? "active" : "";
           <div class="item @activeClassIfNeeded">
-            <img src="@slide.Image.Url" alt="temp alt">
+            <img src="@slide.Image.Url" alt="@slide.Image.Alias">
             <div class="carousel-text-background"></div>
             <div class="carousel-text-container">
               <h3 class="carousel-text-title">@slide.Header</h3>
               <p class="carousel-text-desc">@slide.Description</p>
-              <a class="carousel-text-read-more" target="_blank" href="@slide.Url">Przejdź do postu</a>
+              <a class="carousel-text-read-more" href="@slide.Url">Przejdź do postu</a>
             </div>
             
           </div>

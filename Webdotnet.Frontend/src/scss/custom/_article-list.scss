@@ -21,20 +21,7 @@
   .article-card-section-header{
     padding-left: 22px;
   }
-  .article-card-tag{
-    background-color: $tag-color;
-    display: block;
-    color: white;
-    float: left;
-    padding: 2px 8px 2px 8px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    border-radius: 50px;
-    font-size: 16px;
-    i{
-      margin-right: 7px;
-    }
-  }
+ 
   .article-card-desc{
     clear: both;
     padding-top: 12px;
@@ -50,4 +37,18 @@
     }
   }
 }
+ .article-card-tag{
+    background-color: $tag-color;
+    display: block;
+    color: white;
+    float: left;
+    padding: 2px 8px 2px 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 50px;
+    font-size: 16px;
+    i{
+      margin-right: 7px;
+    }
+  }
 

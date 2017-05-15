@@ -1,4 +1,5 @@
 .social-nav-icon{
+  z-index: 99999;
   font-size: 20px;
   border-right: 2px solid $navbar-default-border;
   width: 55px;
@@ -20,6 +21,7 @@
 }
 .navbar-nav{
   .header-menu-item{
+    z-index: 99999;
     text-transform: uppercase;
     font-size: 15px;
   }
@@ -28,4 +30,8 @@
     border: 0px;
     transition: box-shadow 0.2s;
   }
+}
+.navbar-brand{
+  padding: 0;
+  margin-left: 0;
 }

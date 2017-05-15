@@ -1,5 +1,5 @@
 .carousel-section{
-  padding: 5px 0 0;
+  padding:0;
 
   .carousel-inner{
     height: 450px;
@@ -13,6 +13,7 @@
     width: 450px;
     padding: 0 10px;
     color: black;
+    font-size: 18px;
   }
   .carousel-text-background{
     @extend .carousel-text-container;
@@ -21,7 +22,7 @@
   }
   .carousel-text-read-more{
     float: right;
-
+    cursor: pointer;
   }
 }
 
