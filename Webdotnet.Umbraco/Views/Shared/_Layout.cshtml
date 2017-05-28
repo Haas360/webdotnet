@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>@Model.Title</title>
   <meta name="description" content="@Model.Description">
   @if (Model.IsArticle)
@@ -15,8 +16,6 @@
       <meta property="og:image" content="@Model.ArticleImgUrl">
       <meta property="og:type" content="website">
   }
-
-
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -37,13 +36,13 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
   <link href="~/assets/css/main.css" rel="stylesheet">
-
+  @if (Model.IsArticle)
+  {
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/solarized-light.min.css">
+  }
 </head>
 <body>
-
-
-
-
   @if (Model.Header != null)
   {
       @Html.Partial(Model.Header.PartialPath, Model.Header.ViewModel)
@@ -58,23 +57,26 @@
   {
       @Html.Partial(Model.Footer.PartialPath, Model.Footer.ViewModel)
   }
-<div class="cookie-container js-cookies-container">
-  <div class="cookiebar">
-    <div class="cookie-text">
-      Strona WebDotNet używa plików cookie w celu spersonalizowania zawartości. Możesz je wyłączyć w swojej przeglądarce lub korzystając nadal z strony godzisz się na użycie cookies.
+  <div class="cookie-container js-cookies-container">
+    <div class="cookiebar">
+      <div class="cookie-text">
+        Strona WebDotNet używa plików cookie w celu spersonalizowania zawartości. Możesz je wyłączyć w swojej przeglądarce lub korzystając nadal z strony godzisz się na użycie cookies.
+      </div>
+      <button class="btn btn-primary cookie-button js-cookies-button">Rozumiem</button>
     </div>
-    <button class="btn btn-primary cookie-button js-cookies-button">Rozumiem</button>
   </div>
-</div>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous"></script>
-<script src="~/assets/js/main.js"></script>
-@if (Model.IsArticle)
-{
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59024a70bf696f91"></script>
-} 
+  <script src="~/assets/js/main.js"></script>
+  @if (Model.IsArticle)
+  {
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59024a70bf696f91"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  }
 </body>
 </html>

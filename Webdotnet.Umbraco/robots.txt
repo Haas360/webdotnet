@@ -13,4 +13,4 @@ Disallow: /usercontrols/
 Disallow: /xslt/
 Disallow: /views/
 
-Sitemap: http://webdotnet.eu/sitemap
+Sitemap: http://webdotnet.pl/sitemap

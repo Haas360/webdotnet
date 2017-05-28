@@ -1,6 +1,24 @@
-﻿@inherits UmbracoViewPage<Webdotnet.Custom.Controllers.AllArticlesViewModel>
+﻿@using System.Globalization
+@inherits UmbracoViewPage<Webdotnet.Custom.Controllers.AllArticlesViewModel>
 
 
-<section>
-  
+<section class="all-articles">
+  <h1>Wszystkie posty</h1>
+  <div>
+    @foreach (var group in Model.GrupedArticles)
+    {
+      <div class="all-articles__article-group">
+        <span class="all-articles__group-title">@group.NodeName</span>
+        <ol class="all-articles__articles-list">
+        @foreach (var article in group.Articles)
+        {
+          <li class="all-articles__article"><a href="@article.Url">
+            <span class="all-articles__date">@article.Date.ToString("d", CultureInfo.GetCultureInfoByIetfLanguageTag("pl"))</span>
+            <span class="all-articles__name">@article.Title</span>
+          </a></li>
+        }
+        </ol>
+      </div>
+    }
+  </div>
 </section>

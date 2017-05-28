@@ -299,7 +299,9 @@
     <Compile Include="Core\Sections\ArticleBodyTextBuilder.cs" />
     <Compile Include="Core\Sections\ArticleListBuilder.cs" />
     <Compile Include="Core\Sections\ArticlesCarouselBuilder.cs" />
+    <Compile Include="Core\Sections\CodeSnippetBuilder.cs" />
     <Compile Include="Core\Sections\ErrorSectionBuilder.cs" />
+    <Compile Include="Core\Sections\LatestArticlesBuilder.cs" />
     <Compile Include="Core\Sections\ThemeTestBuilder.cs" />
     <Compile Include="Core\UmbracoContentChangeHandler.cs" />
     <Compile Include="Core\WebdotnetApplication.cs" />
@@ -310,6 +312,7 @@
     <Compile Include="ViewModels\ArticleListViewModel.cs" />
     <Compile Include="ViewModels\ArticleViewModel.cs" />
     <Compile Include="ViewModels\CarouselViewModel.cs" />
+    <Compile Include="ViewModels\CodeSnippetViewModel.cs" />
     <Compile Include="ViewModels\LayoutBaseViewModel.cs" />
     <Compile Include="Core\Sections\CarouselBuilder.cs" />
     <Compile Include="Core\Sections\FooterBuilder.cs" />

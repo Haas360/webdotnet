@@ -40,6 +40,8 @@ namespace Webdotnet.Custom.DependencyResolution {
             For<ISectionBuilder>().Use<ArticleListBuilder>();
             For<ISectionBuilder>().Use<ArticleBodyTextBuilder>();
             For<ISectionBuilder>().Use<ArticlesCarouselBuilder>();
+            For<ISectionBuilder>().Use<CodeSnippetBuilder>();
+            For<ISectionBuilder>().Use<LatestArticlesBuilder>();
 
             For<IPageModelExtender>().Use<PageModelExtender>();
         }

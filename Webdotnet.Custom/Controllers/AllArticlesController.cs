@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using Umbraco.Core;
@@ -30,13 +31,13 @@ namespace Webdotnet.Custom.Controllers
             {
                 Title = x.Name,
                 Url = x.Url,
-                Date = x.CreateDate
+                Date = x.CreateDate 
             }).ToList();
             var grupedArticlesList = new List<GrupedArticles>();
 
             parsedArticles.ForEach(article =>
             {
-                var parsedDate = $"{article.Date.Month} {article.Date.Year}";
+                var parsedDate = article.Date.ToString("Y", CultureInfo.GetCultureInfoByIetfLanguageTag("pl")).ToFirstUpper();
                 if (grupedArticlesList.Any(x => x.NodeName == parsedDate))
                 {
                     var monthList = grupedArticlesList.First(x => x.NodeName == parsedDate);

@@ -5,12 +5,12 @@
   
   <div class="col-md-9">
 
-    <div>
+    <section class="article-sections">
       @foreach (var section in Model.Sections)
       {
         @Html.Partial(section.PartialPath, section.ViewModel)
       }
-    </div>
+    </section>
     
   </div>
   <div class="col-md-3 article-side-section">

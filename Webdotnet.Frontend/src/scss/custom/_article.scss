@@ -28,3 +28,16 @@
 .article-comments{
   padding: 25px;
 }
+.article-sections{
+  pre{
+    padding: 0;
+    white-space: normal;
+    margin: 0 14px;
+  }
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: auto;
+  }
+}
