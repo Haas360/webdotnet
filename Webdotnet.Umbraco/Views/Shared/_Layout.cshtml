@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <meta name="robots" content="noindex, nofollow">
   <title>@Model.Title</title>
   <meta name="description" content="@Model.Description">
@@ -35,7 +35,7 @@
   <meta name="theme-color" content="#ffffff">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-  <link href="~/assets/css/main.css" rel="stylesheet">
+  <link href="~/assets/css/main.css?ver=1.4" rel="stylesheet">
   @if (Model.IsArticle)
   {
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
@@ -57,7 +57,10 @@
   {
       @Html.Partial(Model.Footer.PartialPath, Model.Footer.ViewModel)
   }
-  <div class="cookie-container js-cookies-container">
+  @{
+    var additionalClass = @Model.IsArticle? "bottom-break": "";
+  }
+  <div class="cookie-container @additionalClass js-cookies-container">
     <div class="cookiebar">
       <div class="cookie-text">
         Strona WebDotNet używa plików cookie w celu spersonalizowania zawartości. Możesz je wyłączyć w swojej przeglądarce lub korzystając nadal z strony godzisz się na użycie cookies.
@@ -69,7 +72,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous"></script>
-  <script src="~/assets/js/main.js"></script>
+  <script src="~/assets/js/main.js?ver=1.3"></script>
   @if (Model.IsArticle)
   {
       <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59024a70bf696f91"></script>

@@ -284,6 +284,7 @@
     <Compile Include="Controllers\AllArticlesController.cs" />
     <Compile Include="Controllers\ArticleControler.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\RssController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Core\Helpers\ImageWraper.cs" />

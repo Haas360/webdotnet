@@ -4,9 +4,11 @@
   border-right: 2px solid $navbar-default-border;
   width: 55px;
   text-align: center;
+  float: left;
 
   &:first-child{
     border-left: 2px solid $navbar-default-border;
+    margin-left: 14px;
   }
 }
 .navbar-header{
@@ -34,4 +36,19 @@
 .navbar-brand{
   padding: 0;
   margin-left: 0;
+  
+  @media (max-width: 770px) {
+    margin-left: 10px !important;
+  }
+  img{
+    height: 50px;
+  }
+}
+.navbar-collapse{
+  @media (max-width: 770px) {
+    margin-left: 0 !important;
+  }
+}
+.navbar-header{
+  margin-right: 0 !important;
 }

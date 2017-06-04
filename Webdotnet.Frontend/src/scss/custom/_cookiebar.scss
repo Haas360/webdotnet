@@ -3,11 +3,11 @@
   bottom: 0;
   width: 100%;
   display: none;
+  background-color: #e0f7ff;
 
   .cookiebar{
-    display: flex;
+    display: block;
     position: relative;
-    background-color: #e0f7ff;
     border-left: 2px solid black;
     border-top: 2px solid black;
     border-right: 2px solid black;
@@ -31,7 +31,7 @@
     .cookie-button{
       margin: 10px;
       position: relative;
-      float: left;
+      float: right;
       @media (max-width: 1070px) {
         clear: both;
       }

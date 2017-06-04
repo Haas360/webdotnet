@@ -3,6 +3,14 @@
 
   .carousel-inner{
     height: 450px;
+    @media (max-width: 770px) {
+      height: 280px;
+    }
+    .item{
+      img{
+        max-width: none;
+      }
+    }
   }
 
   .carousel-text-container{
@@ -14,6 +22,16 @@
     padding: 0 10px;
     color: black;
     font-size: 18px;
+
+    @media (max-width: 700px) {
+      right: 70px;
+      width: 240px;
+      top:74px;
+      height: 150px;
+      .carousel-text-desc{
+        display: none;
+      }
+    }
   }
   .carousel-text-background{
     @extend .carousel-text-container;

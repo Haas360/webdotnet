@@ -3,23 +3,30 @@
  color: $footer-font-color;
 
   .footer-column{
-    border-right: 1px solid $footer-font-color;
     padding-bottom: 8px;
   }
   .footer-column-left-border{
-    border-left: 1px solid $footer-font-color;
-    padding-left: 15px;
     padding-bottom: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+
   }
   .footer-social-media-list{
     list-style-type: none;
     padding-left: 15px;
     font-size: 18px;
   }
+  .footer-short-desc{
+    margin-right: 20px;
+  }
   .footer-social-item{
     a {
       color: $footer-font-color;
     }
+  }
+}
+
+.bottom-break{
+  @media (max-width: 770px) {
+    padding-bottom: 50px;
   }
 }

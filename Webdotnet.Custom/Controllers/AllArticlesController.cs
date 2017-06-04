@@ -34,7 +34,7 @@ namespace Webdotnet.Custom.Controllers
                 Date = x.CreateDate 
             }).ToList();
             var grupedArticlesList = new List<GrupedArticles>();
-
+            var index = 0;
             parsedArticles.ForEach(article =>
             {
                 var parsedDate = article.Date.ToString("Y", CultureInfo.GetCultureInfoByIetfLanguageTag("pl")).ToFirstUpper();
@@ -47,13 +47,17 @@ namespace Webdotnet.Custom.Controllers
                 {
                     grupedArticlesList.Add(new GrupedArticles
                     {
+                        Order = index,
                         NodeName = parsedDate,
                         Articles = new List<MetadataForAllList> { article }
                     });
+                    index++;
                 }
             });
 
             var pageViewModel = _pageModelExtender.ApplyLayoutToModel(new PageViewModel(), model.Content);
+
+            grupedArticlesList.ForEach(x => { x.Articles = x.Articles.OrderByDescending(y => y.Date).ToList(); });
 
             var allArticlesViweModel = new AllArticlesViewModel
             {
@@ -63,7 +67,7 @@ namespace Webdotnet.Custom.Controllers
                 Footer = pageViewModel.Footer,
                 IsArticle = false,
                 Id = pageViewModel.Id,
-                GrupedArticles = grupedArticlesList
+                GrupedArticles = grupedArticlesList.OrderByDescending(x=>x.Order).ToList()
             };
 
             return View("AllArticles", allArticlesViweModel);
@@ -78,6 +82,7 @@ namespace Webdotnet.Custom.Controllers
     public class GrupedArticles
     {
         public string NodeName { get; set; }
+        public int Order { get; set; }
         public List<MetadataForAllList> Articles { get; set; }
     }
     public class MetadataForAllList

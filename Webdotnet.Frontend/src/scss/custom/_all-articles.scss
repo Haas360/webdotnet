@@ -4,4 +4,30 @@
   .all-articles__articles-list{
     list-style-type: none;
   }
+  text-align: left;
+  .all-articles__article-group{
+    clear: both;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  @media (max-width: 770px) {
+    .all-articles__date {
+      float: left;
+      clear: both;
+    }
+    .all-articles__article-group{
+      ol{
+        padding-left: 10px;
+      }
+    }
+    .all-articles__name{
+      float: left;
+      clear: both;
+      margin-bottom: 10px;
+    }
+    .all-articles__article{
+      display: block;
+    }
+  }
 }

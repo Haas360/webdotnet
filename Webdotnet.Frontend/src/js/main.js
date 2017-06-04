@@ -1,7 +1,7 @@
 const App = () => {
     let cookiesContainer = $(".js-cookies-container");
     let cookiesButton = cookiesContainer.find(".js-cookies-button");
-    let cookieName = "webdotnet-cookie"
+    let cookieName = "webdotnet-cookie-v2"
     let cookieValue = $.cookie(cookieName);
     if(cookieValue === undefined || cookieValue != "agreed"){
         cookiesContainer.show();

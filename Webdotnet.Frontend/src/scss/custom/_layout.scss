@@ -1,11 +1,16 @@
 .content{
-  background-image: linear-gradient(to top, rgb(213, 212, 208) 0%, rgb(213, 212, 208) 1%, rgb(238, 238, 236) 31%, rgb(239, 238, 236) 75%, rgb(233, 233, 231) 100%);
+  //background-image: linear-gradient(to top, rgb(213, 212, 208) 0%, rgb(213, 212, 208) 1%, rgb(238, 238, 236) 31%, rgb(239, 238, 236) 75%, rgb(233, 233, 231) 100%);
 }
 .body-section{
   background-color: $white;
 }
 .container{
   padding: 0;
+  text-align: justify;
+
+  @media (max-width: 770px) {
+    word-wrap: break-word;
+  }
 }
 .btn {
   background-image: none !important;

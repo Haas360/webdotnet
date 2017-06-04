@@ -44,7 +44,7 @@ namespace Webdotnet.Custom.Core.Sections
                 FontAwesomeClass = x.GetValue<string>("fontAwesomeClass"),
                 Url = x.GetValue<string>("url"),
             });
-            var logo = content.GetImage("logo", _nodeHelper).WithHeight(50);
+            var logo = content.GetImage("logo", _nodeHelper).WithHeight(100).WithQuality(95);
             return new HeaderViewModel
             {
                 Logo = logo,
