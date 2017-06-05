@@ -42,7 +42,7 @@ namespace Webdotnet.Custom.Controllers
                     Title = article.GetPropertyValue<string>("title"),
                     ShortDescription = article.GetPropertyValue<string>("shortDescription"),
                     Tags = article.GetPropertyValue<string>("tags").Split(','),
-                    CardImage = article.GetImage("cardImage", _nodeHelper).WithQuality(80).WithHeight(160).WithWidth(330).WithCrop(),
+                    CardImage = article.GetImage("cardImage", _nodeHelper).WithQuality(75).WithHeight(160).WithWidth(330).WithCrop(),
                     Url = article.Url
                 });
             });

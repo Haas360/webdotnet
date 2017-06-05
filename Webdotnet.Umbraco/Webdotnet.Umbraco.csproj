@@ -453,6 +453,7 @@
     <Content Include="Views\Sitemap.cshtml" />
     <Content Include="Views\AllArticles.cshtml" />
     <Content Include="Views\Partials\CodeSnippet.cshtml" />
+    <Content Include="Views\Rss.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

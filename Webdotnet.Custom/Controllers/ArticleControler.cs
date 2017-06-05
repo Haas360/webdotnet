@@ -36,12 +36,12 @@ namespace Webdotnet.Custom.Controllers
             var rootNodes = _nodeHelper.Umbraco.TypedContentAtRoot();
             var websiteNode = rootNodes.First(x => x.DocumentTypeAlias == "master");
             var articleViewModel = pageViewModel.ExtendToArticleViewModel(model.Content, websiteNode);
-            var image = model.Content.GetImage("cardImage", _nodeHelper).WithQuality(80).WithHeight(160).WithWidth(330).WithCrop();
+            var image = model.Content.GetImage("cardImage", _nodeHelper).WithQuality(75).WithHeight(160).WithWidth(330).WithCrop();
             var request = HttpContext.Request;
             var domainurl = string.Format("{0}://{1}", request.Url.Scheme, request.Url.Authority);
             articleViewModel.ArticleImgUrl = domainurl +image.Url;
 
-            articleViewModel.Image = model.Content.GetImage("cardImage", _nodeHelper).WithQuality(90).WithHeight(400).WithWidth(1170).WithCrop();
+            articleViewModel.Image = model.Content.GetImage("cardImage", _nodeHelper).WithQuality(75).WithHeight(400).WithWidth(1170).WithCrop();
             return View("Article", articleViewModel);
         }
     }

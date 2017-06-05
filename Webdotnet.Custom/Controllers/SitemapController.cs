@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using DevTrends.MvcDonutCaching;
 using Umbraco.Core;
 using Umbraco.Web;
 using Umbraco.Web.Models;
@@ -12,6 +13,7 @@ using Webdotnet.Custom.Core.Helpers;
 
 namespace Webdotnet.Custom.Controllers
 {
+    [DonutOutputCache(CacheProfile = "Page.Cache")]
     public class SitemapController : RenderMvcController
     {
         private readonly INodeHelper _nodeHelper;

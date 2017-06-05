@@ -1,5 +1,23 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Rss>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@inherits UmbracoViewPage<List<Webdotnet.Custom.Controllers.RssModel>>
 @{
-	Layout = null;
-}
+    Layout = null;
+    Response.ContentType = "text/xml";
+}<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+  <channel>
+    <atom:link href="http://www.webdotnet.eu/rss" rel="self" type="application/rss+xml" />
+    <title>WebDotNet - Kamil Hadas</title>
+    <link>http://www.webdotnet.eu</link>
+    <description>Webdotnet blog</description>
+    @foreach (var item in Model)
+    {
+      <item>
+        <title>@item.Title</title>
+        @Html.Raw("<link>")@item.Url@Html.Raw("</link>")
+        <description>@item.Description</description>
+        <guid>@item.Url</guid>
+      </item>
+    }
+  </channel>
+</rss>
