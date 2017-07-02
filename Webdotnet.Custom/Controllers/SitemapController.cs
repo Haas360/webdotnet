@@ -33,11 +33,14 @@ namespace Webdotnet.Custom.Controllers
 
             websiteNode.Children.ForEach(page =>
             {
-                listOfPagesForSitemap.Add(new SitemapPage
+                if (page.GetPropertyValue<bool>("isInSiteMap") && page.DocumentTypeAlias == "page")
                 {
-                    Url = page.UrlAbsolute(),
-                    LastModifiedDateString = page.UpdateDate.ToString("yyyy-MM-dd")
-                });
+                    listOfPagesForSitemap.Add(new SitemapPage
+                    {
+                        Url = page.UrlAbsolute(),
+                        LastModifiedDateString = page.UpdateDate.ToString("yyyy-MM-dd")
+                    });
+                }
             });
 
             var allArticles = articlesRootNode.Children.SelectMany(x => x.Children).ToList();

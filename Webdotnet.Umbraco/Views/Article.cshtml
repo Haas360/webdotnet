@@ -1,4 +1,5 @@
-﻿@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.ArticleViewModel>
+﻿@using System.Globalization
+@inherits UmbracoViewPage<Webdotnet.Custom.ViewModels.ArticleViewModel>
 
 <article class="article-container container-section">
   <img class="article-img" src="@Model.Image.Url" alt="@Model.Image.Alias" />
@@ -14,18 +15,20 @@
     
   </div>
   <div class="col-md-3 article-side-section">
+   
+
+    <div class="article-tags">
+      <span class="article-side-header">Tagi:</span>
+      <div class="article-card-tags">
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="article-tag-link"><a href="@tag.Url"><span class="article-card-tag"><i class="fa fa-tag" aria-hidden="true"></i>@tag.Title</span></a></div>
+        }
+      </div>
+    </div>
+    <span class="article-side-header">Data publikacji: @Model.PublishedOn.ToString("d", CultureInfo.GetCultureInfoByIetfLanguageTag("pl"))</span>
     @if (Model.RecentArticles.Any())
     {
-
-      <div class="article-tags">
-        <span class="article-side-header">Tagi:</span>
-        <div class="article-card-tags">
-          @foreach (var tag in Model.Tags)
-          {
-            <a href="@tag.Url"><span class="article-card-tag"><i class="fa fa-tag" aria-hidden="true"></i>@tag.Title</span></a>
-          }
-        </div>
-      </div>
       <span class="article-side-header">Ostatnie z kategorii:</span>
       <div class="recent-from-the-same-category">
         @foreach (var articlelink in Model.RecentArticles)

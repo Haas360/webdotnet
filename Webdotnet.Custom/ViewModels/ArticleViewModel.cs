@@ -12,5 +12,6 @@ namespace Webdotnet.Custom.ViewModels
         public ImageWraper Image { get; set; }
         public List<ArticleRecentElement> RecentArticles { get; set; }
         public IEnumerable<TagWithLink> Tags { get; set; }
+        public DateTime PublishedOn { get; set; }
     }
 }

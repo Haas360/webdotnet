@@ -28,8 +28,13 @@ namespace Webdotnet.Custom.Core.Helpers
             var websiteNode = rootNodes.First(x => x.DocumentTypeAlias == "master");
             var header = BuildSection(websiteNode, SectionDocumentTypes.Header);
             var footer = BuildSection(websiteNode, SectionDocumentTypes.Footer);
+            var customTitle = model.GetPropertyValue<string>("title");
 
-            viewModel.Title = websiteNode.GetPropertyValue<string>("title");
+            viewModel.Title = string.IsNullOrEmpty(customTitle) ? websiteNode.GetPropertyValue<string>("title") : customTitle;
+            
+            var customDesc = model.GetPropertyValue<string>("description");
+
+            viewModel.Description = customDesc;
             viewModel.Header = header;
             viewModel.Footer = footer;
             viewModel.Id = model.Id;

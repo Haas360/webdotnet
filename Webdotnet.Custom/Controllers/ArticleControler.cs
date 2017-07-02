@@ -42,6 +42,7 @@ namespace Webdotnet.Custom.Controllers
             articleViewModel.ArticleImgUrl = domainurl +image.Url;
 
             articleViewModel.Image = model.Content.GetImage("cardImage", _nodeHelper).WithQuality(75).WithHeight(400).WithWidth(1170).WithCrop();
+            articleViewModel.PublishedOn = model.Content.CreateDate;
             return View("Article", articleViewModel);
         }
     }
