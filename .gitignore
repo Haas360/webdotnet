@@ -1,13 +1,3 @@
-#################
-## No Zebra custom
-#################
-
-/Docs/
-
-#################
-## Frontend
-#################
-
 /Webdotnet.Umbraco/assets/
 
 /Webdotnet.Frontend/*/node_modules/
@@ -54,14 +44,9 @@
 /Webdotnet.Umbraco.Db/*.log
 /Webdotnet.Umbraco.Db/*.txt
 
-#################
-## NuGet packages
-#################
+
 /packages/
 
-#################
-## Visual Studio
-#################
 .vs
 
 # User-specific files
@@ -129,18 +114,9 @@ _TeamCity*
 App_Data/*.mdf
 App_Data/*.ldf
 
-#############
-## Windows detritus
-#############
-
-# Windows image file caches
 Thumbs.db
 ehthumbs.db
-
-# Folder config file
 Desktop.ini
-
-# Recycle Bin used on file shares
 $RECYCLE.BIN/
 
 # Mac crap
