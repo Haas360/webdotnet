@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+﻿using System;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Webdotnet.Custom.Core.SectionBuilder;
@@ -6,21 +6,20 @@ using Webdotnet.Custom.ViewModels;
 
 namespace Webdotnet.Custom.Core.Sections
 {
-    public class ArticleBodyTextBuilder : ISectionBuilder
+    public class YouTubeIFrameBuilder: ISectionBuilder
     {
-        public string ViewName => "ArticleBodyText";
+        public string ViewName => "YouTubeIFrame";
         public BaseViewModel CreateViewModel(IPublishedContent content)
         {
-            return new ArticleBodyTextViewModel()
+            return new YouTubeIFrameViewModel
             {
-                Id = content.Id,
-                Body = new MvcHtmlString(content.GetPropertyValue<string>("body"))
+                Url = content.GetPropertyValue<string>("link")
             };
         }
 
         public bool DeosApply(string documentAlias)
         {
-            return documentAlias == "articleText";
+            return documentAlias == "youtubeIFrame";
         }
     }
 }

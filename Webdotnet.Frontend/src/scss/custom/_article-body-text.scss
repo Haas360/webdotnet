@@ -20,3 +20,15 @@
     font-size: 26px;
   }
 }
+.youtube-iframe{
+
+  @media (max-width: 600px) {
+    height: 330px;
+  }
+  @media (max-width: 1200px) {
+    height: 400px;
+  }
+  height: 476px;
+
+  margin-bottom: 10px;
+}

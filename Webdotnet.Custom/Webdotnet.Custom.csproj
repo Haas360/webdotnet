@@ -304,6 +304,7 @@
     <Compile Include="Core\Sections\ErrorSectionBuilder.cs" />
     <Compile Include="Core\Sections\LatestArticlesBuilder.cs" />
     <Compile Include="Core\Sections\ThemeTestBuilder.cs" />
+    <Compile Include="Core\Sections\YouTubeIFrameBuilder.cs" />
     <Compile Include="Core\UmbracoContentChangeHandler.cs" />
     <Compile Include="Core\WebdotnetApplication.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
@@ -331,6 +332,7 @@
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\SectionErrorViewModel.cs" />
+    <Compile Include="ViewModels\YouTubeIFrameViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

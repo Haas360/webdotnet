@@ -1,5 +1,4 @@
-﻿using Umbraco.Core.Models;
-using Webdotnet.Custom.Core.Helpers;
+﻿using Webdotnet.Custom.Core.Helpers;
 using Webdotnet.Custom.Core.SectionBuilder;
 
 namespace Webdotnet.Custom.ViewModels

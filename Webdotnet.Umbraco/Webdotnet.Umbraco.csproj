@@ -454,6 +454,7 @@
     <Content Include="Views\AllArticles.cshtml" />
     <Content Include="Views\Partials\CodeSnippet.cshtml" />
     <Content Include="Views\Rss.cshtml" />
+    <Content Include="Views\Partials\YouTubeIFrame.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

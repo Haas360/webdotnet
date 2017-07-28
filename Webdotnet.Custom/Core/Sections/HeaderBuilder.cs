@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Archetype.Models;
-using Newtonsoft.Json;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Webdotnet.Custom.Core.Helpers;

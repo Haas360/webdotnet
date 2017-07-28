@@ -42,6 +42,7 @@ namespace Webdotnet.Custom.DependencyResolution {
             For<ISectionBuilder>().Use<ArticlesCarouselBuilder>();
             For<ISectionBuilder>().Use<CodeSnippetBuilder>();
             For<ISectionBuilder>().Use<LatestArticlesBuilder>();
+            For<ISectionBuilder>().Use<YouTubeIFrameBuilder>();
 
             For<IPageModelExtender>().Use<PageModelExtender>();
         }
